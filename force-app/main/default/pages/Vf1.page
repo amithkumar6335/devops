@@ -1,0 +1,12 @@
+<apex:page controller="Vf1" sidebar="false">
+    <apex:form >
+        <apex:pageBlock title="Add Input Values">
+            <apex:pageBlockSection >
+                 <apex:inputField value="{!p.name}" /> <br/>
+                 <apex:inputField value="{!p.rating}" /> <br/>
+                 <apex:inputField value="{!p.phone}" />
+            </apex:pageBlockSection>
+            <apex:commandButton value="next page" action="{!nextpage}" />
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

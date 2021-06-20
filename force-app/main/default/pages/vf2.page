@@ -1,0 +1,15 @@
+<apex:page controller="vf2" sidebar="false" >
+    <apex:form >
+        <apex:pageBlock title="Input received from user">
+            <apex:pageBlockSection >
+                <apex:outputLabel >Name</apex:outputLabel>
+                <apex:outputText value="{!nameVal}" />
+                  <apex:outputLabel >Rating</apex:outputLabel>
+                <apex:outputText value="{!ratingVal}" /> 
+                  <apex:outputLabel >Phone</apex:outputLabel>
+                <apex:outputText value="{!phoneVal}" />
+            </apex:pageBlockSection>
+            <apex:commandButton value="save" action="{!save}"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

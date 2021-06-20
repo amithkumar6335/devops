@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>SalaryUpdate</fullName>
+        <field>Current_Salary__c</field>
+        <formula>(PRIORVALUE(Current_Salary__c))* ((1.1)^( Experience_in_Years__c - PRIORVALUE( Experience_in_Years__c)))</formula>
+        <name>SalaryUpdate</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>ExperienceUpdate</fullName>
+        <actions>
+            <name>SalaryUpdate</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>Experience_in_Years__c &gt; PRIORVALUE( Experience_in_Years__c )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

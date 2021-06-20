@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ExperienceValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>PRIORVALUE( Experience_in_Years__c ) &gt; Experience_in_Years__c</errorConditionFormula>
+    <errorDisplayField>Experience_in_Years__c</errorDisplayField>
+    <errorMessage>Current Experience should be greater than previous experience</errorMessage>
+</ValidationRule>

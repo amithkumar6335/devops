@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>only_creation_of_record_but_no_update</fullName>
+    <active>false</active>
+    <errorConditionFormula>NOT( ISNEW() )</errorConditionFormula>
+    <errorMessage>Record can only be created but not updated</errorMessage>
+</ValidationRule>

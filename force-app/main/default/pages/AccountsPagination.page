@@ -1,0 +1,53 @@
+<apex:page controller="accountspaginationclass" id="selPage">
+    <script type="text/javascript">
+        function selectAllCheckboxes(obj,receivedInputID){
+            alert('Hi');
+            alert('hi 123 ' +obj);
+            alert('hi 234 ' +receivedInputID);
+            //var inputCheckBox = document.getElementById(selPage:selForm:pb:selTable");      
+            
+            //var div = document.getElementById("input").contains(span);
+            //alert('the checkbox value is ' + inputCheckBox);
+            // var inputTest = document.getElementsByType("checkbox");
+            //alert('Hello '+inputCheckBox);
+            //alert('Hello 45  '+inputCheckBox.length);
+            //var inputCheckBox = document.getElementById("selPage:selForm:pb:selTable:0:selcb");     
+            //alert('dskjdsk ' + inputCheckBox);
+            for(var i=0; i<5; i++){   
+                var inputCheckBox = document.getElementById("selPage:selForm:pb:selTable:"+i":selcb");     
+                alert('the checkbox value is dsdjs ' + inputCheckBox);
+                //if(inputCheckBox[i].id.indexOf(receivedInputID)!=-1){             
+                //  alert('the checkbox value is dsdjs ' + inputCheckBox[i].checked);
+                //inputCheckBox[i].checked = obj.checked;
+              }
+            //}
+        }
+     </script>
+    <apex:form id="selForm">
+        <apex:pageBlock id="pb">
+            <apex:pageblockButtons location="Top">
+                <apex:commandButton status="fetchStatus" reRender="pb" value="previous" action="{!previous}"  title="Previous Page"/>
+                <apex:commandButton status="fetchStatus" reRender="pb" value="next" action="{!next}" title="Next Page"/>
+                    <apex:commandButton status="fetchStatus" value=" Delete Selected " action="{!updateSearchItemsMap}" />
+            </apex:pageblockButtons>
+            <apex:pageBlockTable value="{!wrapperRecordList}" var="ac" title="All Accounts" id="selTable">
+                <apex:column id="selCol">
+                    <apex:facet name="header">
+                        <apex:inputCheckbox onclick="selectAllCheckboxes(this,'inputId')"/>
+                    </apex:facet>
+                    <apex:inputCheckbox value="{!ac.isSelected}" id="selcb"/>
+                </apex:column>
+                    <apex:column >
+                    <apex:outputLink value="{! URLFOR($Action.Account.Edit, ac.AccountRecord.Id) }"> Edit</apex:outputLink>
+                    &nbsp;
+                    <apex:outputLink value="{! URLFOR($Action.Account.Delete, ac.AccountRecord.Id) }">Del</apex:outputLink>
+                </apex:column>
+      
+                <apex:column value="{!ac.accountRecord.Name}"/>
+                <apex:column value="{!ac.accountRecord.Rating}"/>
+                <apex:column value="{!ac.accountRecord.Industry}"/>
+                <apex:column value="{!ac.accountRecord.Type}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

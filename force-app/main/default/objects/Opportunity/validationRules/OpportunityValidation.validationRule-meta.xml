@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OpportunityValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>ISPICKVAL(PRIORVALUE(Type),&apos;Existing Customer - Replacement&apos;)
+ &amp;&amp;  ISPICKVAL(Type , &apos;Existing Customer - Upgrade&apos;)  || 
+ISPICKVAL(PRIORVALUE(Type),&apos;Existing Customer - Downgrade&apos;)
+ &amp;&amp;  ISPICKVAL(Type , &apos;Existing Customer - Replacement&apos;) ||
+ISPICKVAL(PRIORVALUE(Type),&apos;Existing Customer - Downgrade&apos;)
+ &amp;&amp;  ISPICKVAL(Type , &apos;Existing Customer - Upgrade&apos;)  || 
+ISPICKVAL(PRIORVALUE(Type),&apos;New Customer&apos;)
+ &amp;&amp;  ISPICKVAL(Type , &apos;Existing Customer - Downgrade&apos;)  || 
+ISPICKVAL(PRIORVALUE(Type),&apos;New Customer&apos;)
+ &amp;&amp;  ISPICKVAL(Type , &apos;Existing Customer - Replacement&apos;)  || 
+ISPICKVAL(PRIORVALUE(Type),&apos;New Customer&apos;)
+ &amp;&amp;  ISPICKVAL(Type , &apos;Existing Customer - Upgrade&apos;)</errorConditionFormula>
+    <errorDisplayField>Type</errorDisplayField>
+    <errorMessage>Cannot pick previous value</errorMessage>
+</ValidationRule>

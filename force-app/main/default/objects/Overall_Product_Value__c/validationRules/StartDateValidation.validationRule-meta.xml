@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>StartDateValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>day( Start_Date__c )!= 1</errorConditionFormula>
+    <errorDisplayField>Start_Date__c</errorDisplayField>
+    <errorMessage>Start Date should be 1st date of a month</errorMessage>
+</ValidationRule>
